@@ -1,0 +1,729 @@
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<script>
+    var __rd_url = null;
+    if (window.parent !== window) {
+        try {
+            // in iframe or frame
+            console.log(window.top.location.href); // triggers error in case of a malicious clickjacking attempt
+            if (window.parent.location.pathname === '/secure/tla/jnr.jsp') {
+                // parent is jnr
+                window.parent.location.href = window.location.href;
+            } else if (window.parent.location.pathname === '/secure/take-test1.jsp') {
+                // parent is take-test1
+                setTimeout(function() {
+                    window.parent.location.reload();
+                }, 2000);
+            }
+        } catch (e) {
+            try {
+                window.top.location.href = window.location.href; // let's try to reset top, fails in html5
+            } catch (e1) {
+                window.addEventListener('load', function () {
+                    document.querySelector('body').innerHTML = '<p style="font-size: 3rem; line-height: 2; margin-top: 3rem; text-align: center"><mark>This website is maliciously trying to embed CodeTantra.com inside a frame.<br/><br/>This is likely a clickjacking attack. Please notify support@codetantra.com with a complete screenshot.</mark></p>';
+                });
+            }
+        }
+    }
+</script>
+
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link href="/css/bootstrap-latest.css" rel="stylesheet">
+
+<link href="/css/label-style.css" rel="stylesheet">
+<link href="/css/custom-styles.css" rel="stylesheet">
+<!-- <link href="/css/panel.css" rel="stylesheet"> -->
+<link href="/css/bs-docs-side-nav.css" rel="stylesheet">
+<link href="/css/latest_header_styles.css" rel="stylesheet">
+
+<link href="/css/tablesorter/theme.bootstrap.css" rel="stylesheet">
+
+<link href="/css/jquery-ui.css" rel="stylesheet">
+<link href="/css/tablesorter/theme.jui.css" rel="stylesheet">
+<link href="/css/bootstrap-datepicker.css" rel="stylesheet">
+<link href="/css/bootstrap-slider.css" rel="stylesheet">
+
+<link type="text/css" rel="stylesheet" href="/css/alertify-latest.css">
+<link type="text/css" rel="stylesheet" href="/css/select2-latest.css">
+<link type="text/css" rel="stylesheet" href="/css/dataTables.bootstrap4.css">
+<link type="text/css" rel="stylesheet" href="/css/dataTables.fixedColumns.bootstrap4.css">
+<link type="text/css" rel="stylesheet" href="/css/bootstrap-switch-latest.css">
+
+<link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
+
+<link type="text/css" rel="stylesheet" href="/css/offline-theme-chrome-indicator.css">
+<link rel="stylesheet" href="/css/mathquill.min.css">
+
+<link type="text/css" rel="stylesheet" href="/css/bootstrap4-toggle.min.css">
+
+
+<!-- <link type="text/css" rel="stylesheet" href="/css/3d/components.css"> -->
+
+<!--<script src="/js/offline.js" type="text/javascript" charset="utf-8"></script>-->
+
+<!-- jQuery -->
+<script src="/js/jquery-latest.js"></script>
+
+<!-- Validate Plugin -->
+<script src="/js/jquery.validate-latest.js"></script>
+
+<!-- Modernizr Plugin -->
+<script src="/js/modernizr-2.6.2.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/js/bootstrap.bundle.js"></script>
+<script src="/js/bootstrap-notify.js"></script>
+
+
+<script src="/js/jquery-ui-all.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/d3.js"></script>
+<script src="/js/function-plot.js"></script>
+
+<script src="/js/custom-min/nommoc.min.js"></script>
+
+<script src="/js/common-on-ready-js-methods.js"></script>
+
+<script src="/js/bootstrap-datepicker.js"></script>
+
+<script src="/js/search-table-row-popup.js"></script>
+<script src="/js/bootstrap-slider-latest.js"></script>
+
+<script src="/js/jquery.numeric.js"></script>
+
+<script src="/js/underscore-latest.js"></script>
+
+<script src="/js/hr.js"></script>
+
+<script src="/js/alertify-latest.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/select2-latest.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/bootstrap.touchspin.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/jquery.dataTables.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/dataTables.tableTools.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/dataTables.bootstrap4.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/bootstrap-switch-latest.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/form2object.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/gs/TweenMax.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/gs/circular-preloader.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/ace/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="/js/bootstrap4-toggle.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    ace.require("ace/ext/language_tools");
+</script>
+
+<script src="/js/mathquill.min.js"></script>
+<script>
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CodeTantra Teach & Learn Anywhere
+    </title>
+    <script src="/js/moment.js"></script>
+    <script src="/js/jquery.datetimepicker.js"></script>
+    <link href="/css/jquery.datetimepicker.css" rel="stylesheet">
+    <script src="/js/dataTables.rowGroup.min.js" type="text/javascript"></script>
+    <link href="/css/rowGroup.dataTables.min.css" rel="stylesheet">
+    <style>
+        #testsPanelDiv a {
+            text-decoration: underline !important;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .btn {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="containerDiv">
+    
+
+
+<script src="/js/gs/circular-preloader.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/gs/TweenMax.min.js" type="text/javascript" charset="utf-8"></script>
+
+
+<script src="/js/custom-min/lg.min.js"></script>
+
+<script>
+    var supportEmail = 'support@codetantra.com';
+    var supportPhone = '[ "+91 630 500 7479" , "+91 630 500 8997" , "+91 799 541 7777"]';
+    supportPhone = JSON.parse(supportPhone);
+    var _ct_cookieId = '5d7a2802f7857622a05bb2ca';
+    var _ct_lid = 'riturajyo147147@gmail.com';
+    var _ct_uname = "RITU" ;
+    var _ct_groups = [ { "5f26746fa9fb4d0c46870080" : "2019-CSE-GG2"} , { "5f2bf11001d49f0c040c64e0" : "2019-CSE-CS22"} , { "5f2bf14301d49f0c040c652a" : "2019-CSE-SG21"} , { "5f796b4d45e1750c20a5b5b5" : "HS205"} , { "60214d711b7b780665d075ce" : "TEQIPShortCourseDSA"}];
+    var forceLocation = false;
+    var isCurrentRoleMember = true;
+    var _ct_chid = '565';
+</script>
+
+
+<style>
+    li > a {
+        cursor: pointer;
+    }
+    .border-style {
+        line-height: 30px;
+        border: 2px solid gray;
+        padding: 2px;
+        border-radius: 4px;
+    }
+    .alertify-notifier .ajs-message {
+        width:450px;
+        color: white;
+        font-weight: bold;
+    }
+    .alertify-notifier.ajs-right .ajs-message.ajs-visible {
+        right: 450px;
+        top: 50px;
+        border-radius: 6px;
+    }
+    .alertify-notifier .ajs-message.ajs-error {
+        background: red;
+    }
+    .alertify-notifier .ajs-message.ajs-success {
+        background: rgba(92,184,17,.9);
+    }
+    .alertify-notifier .ajs-message.ajs-warning {
+        background: rgb(248, 165, 0);
+    }
+    #supportDialogBody {
+        background-color: cornsilk;
+    }
+    .select2-results__option[aria-selected="true"]{
+        display: none;
+    }
+</style>
+<script>
+    $(function () {
+        'use strict';
+        $('[data-toggle="offcanvas"]').on('click', function () {
+            $('.offcanvas-collapse').toggleClass('open')
+        })
+    })
+</script>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark d-block d-print-none" id='cssmenu'>
+    <button class="navbar-toggler py-0 border-0" type="button" data-toggle="offcanvas" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="navbar-brand d-lg-none d-print-none"><img src="/img/logo-white-text.png" alt="CodeTantra" height="30" style="max-width: 100%;" /></span>
+    <span class="d-none text-right bg-transparent"><img src="/img/logo-new.png" alt="CodeTantra" style="max-width: 100%;" /></span>
+    <div class="navbar-collapse offcanvas-collapse" id="navbarSupportedContent">
+            
+                
+<ul class="navbar-nav mr-auto">
+    <li class='d-none d-lg-block'>
+        <span class="p-1 d-block">
+             <img src="/img/logo-white-text.png" height="30" alt="Home">
+        </span>
+    </li>
+    <li class="nav-item"><a class="nav-link" href='/secure/home.jsp' style="white-space: nowrap"><i class="fa fa-home"></i><span> Home</span> </a></li>
+    
+    <li class='nav-item dropdown'><a class="nav-link dropdown-toggle" data-toggle="dropdown" href='#' role="menu" aria-haspopup="true" title="Learn anywhere" aria-label="Learn anywhere menu"><span>Learn Anywhere</span></a>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/secure/tla/m.jsp" role="menuitem" title="View meetings" aria-label="Click to view meetings">View Meetings</a></li>
+        </ul>
+    </li>
+</ul>
+            
+            <ul class="navbar-nav ml-md-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> riturajyo147147@gmail.com </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href='/secure/member-profile.jsp'><span>Update Profile</span> </a></li>
+                        
+                        <hr style="margin: 0"/>
+                        <li><a class="dropdown-item" href='/secure/change-password.jsp'><span>Change Password</span> </a></li>
+                        
+                    </ul>
+                </li>
+                
+                <li class="nav-item"><a class="nav-link" id="contactHelp" href='#' onclick="openSupportDialog()" role="contentinfo"><span>Support</span> </a></li>
+                <li class="nav-item"><a class="btn btn-sm btn-danger" id="logoutBtn" style="color: white; font-weight: bold; margin-top: 0.25rem; white-space: nowrap " role="button" aria-label="Logout" title="Click to logout"> Logout <i class="fa fa-sign-out" aria-hidden="true"></i> </a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+</nav>
+<script>
+    $(document).attr('cssBodyWidth', 0);
+
+    
+    $(document).ready(function() {
+        initiateSupportPanel(supportEmail, supportPhone, "");
+        if (forceLocation && !window.lgOverridden) {
+            $(".img-info").html("<b>Note</b> : You can click on the image to view a larger version.");
+            geoLocationCoordinates();
+        }
+
+        setTimeout(function(){
+            if (typeof hideTafPopup != 'undefined' && hideTafPopup) {
+                $('#tafPopupImg').addClass('hide');
+            } else {
+                $('#tafPopupImg').addClass('in');
+            }
+        }, 1000);
+        var $cssmenu = $('#cssmenu');
+        
+
+        $("#logoutBtn").click(function() {
+            logoutClicked();
+        });
+
+        $(".changeRole").click(function() {
+            changeRoleClicked(this);
+        });
+
+    });
+
+    if (alertify) {
+        alertify.set('notifier', 'position', 'top-right');
+    }
+</script>
+
+<div id="pointsModalDialog" class="modal fade" style="z-index: 1060">
+    <div class="modal-dialog">
+        <div class="modal-content hintsDialogContent1">
+            <div class="modal-header hintsDialogHeader">
+                <h5 class="hintsDialogTitle modal-title"><i class="fa fa-cubes" aria-hidden="true"></i> Award Points</h5>
+                <button type="button" class="close" onClick="closePointsDialog()" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body hintsDialogBody" id="hintsDialogBody">
+
+            </div>
+
+            <div class="modal-footer hintsDialogFooter">
+                <a type="button" class="btn btn-warning btn-sm" style='text-decoration:none !important;'  onClick="closePointsDialog()">Close</a>
+
+                <a type="button" class="btn btn-success btn-sm pull-left" style='text-decoration:none !important;'  target='_blank' href='/secure/taf.jsp'><i class="fa fa-users" aria-hidden="true"></i> Invite Friends</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+
+</div>
+
+<div id='supportModalDialog' class='modal fade p-0' style='z-index: 1060'>
+    <div class='modal-content border-warning'>
+        <div class='modal-header card-heading bg-warning' style='padding-bottom: 0;'>
+            <span class='w-100'>
+                <h6 class='modal-title supportDialogTitle1' id='contactLabel'><b>Contact Support</b></h6>
+            </span>
+        </div>
+        <div class='modal-body supportDialogBody text-center' id='supportDialogBody'>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="locationDenyDialog" style="margin-top: 8%">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header btn-primary" style="padding: 10px;">
+                <h4 class="modal-title">Instruction to Unblock Access to Location.</h4>
+            </div>
+            <div class="modal-body" style="background: #fcf8e3;">
+                <div>
+                    <ul>
+                        <li><h4>The portal requires permission  to record the location from which it is being accessed, to minimize your account misuse.</h4></li>
+                        <li><h4>Currently the access to location in the browser is <span class="text-danger"><b>blocked</b></span>.</h4></li>
+                        <li><h4>Follow the instruction in the below <a href="/geolocation-settings-for-C-MF-C.html" target='_blank'>
+                            link</a> to unblock access to location details and click on
+                            <span style="color: darkgreen"><b>refresh</b></span> button.</h4></li>
+                        <li><h4>If you already followed the instructions to unblock and it is still showing this dialog, this may be due to occasional network connectivity problems. Please refresh the page in that case.</h4></li>
+                    </ul>
+
+                    <br/>
+                    <div class="text-center">
+                        <div>
+                            <a href="/geolocation-settings-for-C-MF-C.html" target='_blank'><u><h4><b>Link to Unblock</b></h4></u></a>
+                        </div>
+                        <br/>
+                    </div>
+                    <br/>
+                    <div class="text-center">
+
+                        <a id="close" onclick="location.reload()" class="btn btn-success btn-xs" data-toggle="modal" style="padding: 0 25px 0 25px;">
+                            <h5>Refresh</h5>
+                        </a>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="locationPromptDialog" style="margin-top: 8%">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header btn-primary" style="padding: 10px;">
+                <h4 class="modal-title" id="locationFetchTitle">Fetching Location</h4>
+            </div>
+            <div class="modal-body" style="background: #fcf8e3;">
+                <div>
+                    <ul>
+                        <li><h4>The portal requires permission to record the location from which it is being accessed, to minimize your account misuse.</h4></li>
+                        <li id="changeAllowBtnResToBrowser"><h4>Click on <span class="remember-text"></span>
+                            <span><nobr><b class="allow-access-text border-style"></b></nobr></span>
+                            button to access the location, and click on <span style="color: darkgreen"><b>refresh</b></span> button.</h4>
+                        </li>
+                        <div id="showImage"></div><br/><br/>
+                        <div><h4 class="img-info"></h4></div>
+                    </ul>
+                </div>
+                <br/>
+                <div class="text-center">
+
+                    <a id="close" onclick="location.reload()" class="btn btn-success btn-xs" data-toggle="modal" style="padding: 0 25px 0 25px;">
+                        <h5>Refresh</h5>
+                    </a>
+                </div>
+                <br/>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+<!-- scripts used for screen-sharing -->
+<script src="/js/split.min.js"></script>
+<script src="/js/rtcmulticonnection/rtcmulticonnection.min.js"></script>
+<script src="/js/n/socket.io.js"></script>
+<script src="/js/rtcmulticonnection/screen-capturing.js"></script>
+<script src="/js/rtcmulticonnection/adapter-latest.js"></script>
+<style>
+	button,
+	input,
+	select {
+	    font-weight: normal;
+	    padding: 2px 4px;
+	    text-decoration: none;
+	    display: inline-block;
+	    text-shadow: none;
+	    font-size: 16px;
+	    outline: none;
+	}
+	
+	.make-center {
+	    text-align: center;
+	}
+
+	video {
+		width: 100% !important;
+	}
+
+	.onlyWebcam video {
+		width: 120% !important;
+		margin-left: 50% !important;
+	}
+
+	.videosContainer {
+		text-align: center;
+	}
+
+	.modal-title {
+		font-size: 16px;
+	}
+
+	.split {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+
+	.gutter {
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-position: 50%;
+	}
+
+	.gutter.gutter-horizontal {
+		cursor: col-resize;
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+	}
+
+	.gutter.gutter-vertical {
+		cursor: row-resize;
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+	}
+
+	.split.split-horizontal, .gutter.gutter-horizontal {
+		float: left;
+	}
+	
+	a {
+	    text-decoration: none !important;
+	}
+	#splitContainersDivHeader {
+		z-index: 10;
+		border-radius: 5px 5px 0px 0px;
+		color: #fff;
+		padding: 0px;
+		padding-left: 5px;
+	}
+	#splitContainersDiv {
+		position: absolute;
+		z-index: 1800;
+		padding : 0;
+	}
+</style>
+<div id="containerDiv">
+	    <div class="make-center">
+		    <a id="chromeExtension" href="https://chrome.google.com/webstore/detail/codetantra-collaborative/nlmcedcocipdacdejmajkaaijoaidoef" target="_blank"></a>
+		    <!-- local/remote videos container -->
+			<div id="videos-container" class="videosContainer"></div>
+			<div class="modal fade" id="ssInstructionDialogBeforeSSInit" style="z-index: 9999;">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header btn-primary" style="padding: 10px;">
+							<h4 class="modal-title">Instructions to start Screen Sharing on CodeTantra Platform</h4>
+						</div>
+						<div class="modal-body" style="background: #fcf8e3;">
+							<div id="chrome-instructions">
+								<p style="font-size: 14px">After clicking proceed button a new tab will open.<br>
+									On the new tab choose the window you want to share in the <span style="border-style: solid; border-width: 1px; border-radius: 3px; padding: 1px 5px;">Permission</span> dialogue as shown with red border in below screen-shot and
+								click on the <span style="border-style: solid; border-width: 1px; border-radius: 3px; padding: 1px 5px;">Share</span>
+								button.</p>
+								<hr>
+								<img id="chrome-ss" src="/images/chrome-ss.png" style="width: 100%" alt="screen sharing instructions screen-shot">
+								<hr>								 
+								<span class="btn btn-success btn-play btn-lg in proceedBtn">Proceed
+									<span class="fa-stack fa-lg"><i class="fa fa-play fa-stack-1x fa-inverse"></i></span>
+								</span>
+							</div>
+							<div id="firefox-instructions">
+								<p style="font-size: 14px">CodeTantra support team is trying to help you.<br>
+								Select <span style="border-style: solid; border-width: 1px; border-radius: 3px; padding: 1px 5px; margin: 0 2px 2px">Entire Screen</span>
+									under the <b>Screen to share</b> dropdown and <br>
+								click on the <span style="border-style: solid; border-width: 1px; border-radius: 3px; padding: 1px 5px; margin: 0 2px">Allow</span>
+								button as highlighted with red border<br>
+								in the below screen-shot to start screen sharing when prompted.</p>
+								<hr>
+								<img id="firefox-ss" src="/images/firefox-ss.png" style="width: 100%" alt="screen sharing instructions screen-shot">
+								<hr>
+								<span class="btn btn-success btn-play btn-lg in proceedBtn">Proceed
+									<span class="fa-stack fa-lg"><i class="fa fa-play fa-stack-1x fa-inverse"></i></span>
+								</span>
+							</div>
+							<div style="color: grey; margin-top: 10px" id="countdown"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="ssInstructionDialogAfterSSInit">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header btn-primary" style="padding: 10px;">
+							<span style="font-size: 18px" class="modal-title">Instructions during Screen Sharing with CodeTantra Support</span>
+						</div>
+						<div class="modal-body" style="background: #fcf8e3;">
+							<div>
+								<span style="font-size: 18px">Do NOT close or refresh this tab or window! Otherwise, the Screen Sharing/Audio/Video session with CodeTantra Support team will end.<br>
+								You should now go back to the window or tab you were working previously</span><br>
+								<span style="font-size: 18px">If you want to stop sharing click the button below</span>
+								<div class="make-center"><button class="btn btn-sm btn-primary ml-4" id="stopSharingBtn" onclick="stopScreenSharingBtnClicked()">Stop Sharing</button></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="ssInstructionDialogForFaculty">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header btn-primary" style="padding: 10px;">
+							<span style="font-size: 18px" class="modal-title">Instructions during Screen/Audio/Video Sharing with Students</span>
+						</div>
+						<div class="modal-body" style="background: #fcf8e3;">
+							<div>
+								<span style="font-size: 18px">Do NOT close or refresh this tab or window! Otherwise, the Screen Sharing/Audio/Video session with students will end.<br>
+								You should now go back to the window or tab you were working previously</span><br>
+								<span style="font-size: 18px">If you want to stop sharing click the button below</span>
+								<div class="make-center"><button class="btn btn-sm btn-primary ml-4" id="facultyStopSharingBtn" onclick="stopScreenSharingBtnClicked()">Stop Sharing</button></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<form id="ssDataForm" method="post" action="/secure/screen-share-permission.jsp" target="ssPermissionWindow">
+					<input type="hidden" name="pId" id="pId" value="" />
+					<input type="hidden" name="pUserid" id="pUserid" value="" />
+					<input type="hidden" name="wId" id="wId" value="" />
+					<input type="hidden" name="wUserid" id="wUserid" value="" />
+					<input type="hidden" name="streamType" id="streamType" value="" />
+					<input type="hidden" name="groupIds" id="groupIds" value="" />
+					<input type="hidden" name="isFacultyBroadcasting" id="isFacultyBroadcasting" value=false />
+				</form>
+			</div>
+	    </div>
+</div>
+<body>
+<div id = 'splitContainersDiv' class="d-none col-8">
+	<div id="splitContainersDivHeader" class="bg-info"></div>
+	<div id="rowPropertyAddition">
+	    <div id="videoContainerOne" class="videosContainer"></div>
+		<div id="audioContainer" class="videosContainer d-none"></div>
+		<div id="videoContainerTwo" class="videosContainer"></div>
+	</div>
+</div>
+<div id="requestor-audio-container" style="display:none;">
+	<!-- local/remote audio container -->
+</div>
+</body>
+
+<script src="/js/custom-min/ss.min.js"></script>
+
+    <div class="container" style="min-width: 100%;">
+        <div id="centerContentDiv" class="row justify-content-center">
+            <div id="homeCenterDiv" class="col-12 col-lg-11">
+                
+                
+                
+                <div id="testsPanelDiv" class="card card-primary darkShadow border-primary"
+                     style="margin-top:30px">
+                    <div class="card-header bg-info p-2" id="">
+                        <div>
+                            <span id="tests" class="card-title font-weight-bold text-white"
+                                  style="font-size: 20px;padding-left: 15px;">Tests</span>
+                            <div class='float-right' style="padding-right: 9px;margin-top: 3px;margin-bottom: 0;">
+                                <form name='filterTestsForm' id='filterTestsForm' method=get action='tests.jsp'>
+                                    <div class="input-group input-group-sm">
+                                        <div class="input-group-prepend d-block">
+                                            <span class=" input-group-text" id="basic-addon1">Search between : </span>
+                                        </div>
+                                        <input aria-label="start date"
+                                               class="form-control input input-group-text dateTime" id="startDate"
+                                               name="startDate" value='2021/02/10'/>
+                                        <input aria-label="start date"
+                                               class="form-control input input-group-text dateTime" id="endDate"
+                                               name="endDate" value='2021/02/28'/>
+                                        <span class="input-group-append d-block">
+												<b style='text-decoration: none;' onClick="th.filterTests()"
+                                                   class='searchTestsBtn btn btn-sm btn-success'><i
+                                                        class='fa fa-search'></i> Search</b>
+											</span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="testsBody" style="font-size: 14px;" class="card-body table-responsive">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+    html {
+        position: relative;
+        min-height: calc(100vh - 50px);
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 10px;
+        padding-top: 10px;
+        left: 0;
+    }
+</style>
+<div class="footer">
+    <div id="pageFooterDiv" class=" my-round-border4">
+        <div style="padding: 12px">
+            <div class="" style="text-align: center;">&#169;
+                2021
+Copyright <a
+				href='https://www.codetantra.com' target='_blank'
+				title='CodeTantra Tech Solutions Pvt Ltd.'>CodeTantra.com</a></div>
+        		
+    </div>
+</div>
+</div>
+
+</div>
+<script src="/js/luxon.js"></script>
+
+<script src="/js/custom-min/nommoc.min.js"></script>
+<script type="text/javascript" src="/js/custom-min/mutils.min.js"></script>
+<script src="/js/custom-min/th.min.js"></script>
+<script src="/js/custom-min/datediff.min.js"></script>
+<script src="/js/custom-min/crd.min.js"></script>
+<script src="/js/custom-min/ql.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+        th.init({ "startDateText" : "2021/02/10" , "endDateText" : "2021/02/28" , "jsonTestScheduleArr" : [ { "_id" : { "$oid" : "602668e37ed99e065ba6d917"} , "startTime" : { "$date" : "2021-02-27T04:30:00.000Z"} , "endTime" : { "$date" : "2021-02-27T06:30:00.000Z"} , "preparationTime" : 15 , "entryStopTime" : { "$date" : "2021-02-27T05:00:00.000Z"} , "test" : "602668e37ed99e065ba6d916" , "name" : "CS 205 Mid sem" , "forceLocationInTest" : false , "environmentCheck" : false , "enforceFullScreenInTest" : true , "ipRestriction" : false , "showResultsBeforeEndTime" : false , "isEnabled" : true , "isHideMainContent" : false , "needEvaluators" : false , "remoteProctoring" : "remoteProctoringWithRecord" , "rpAudio" : true , "rpCam" : true , "rpScreen" : false , "trackBiometrics" : true , "allowExamStartOn" : "alwaysUnblock" , "requiresJavaApplet" : false , "isAllowedLanguages" : false , "enableFinishBeforeRemainingTimeLeft" : 0 , "testSrc" : "ANTY1X2N0X2No" , "testProfile" : { "test" : "stc2_319" , "displayName" : "stc2_319" , "totalTime" : 120 , "totalMarks" : 60 , "passMarks" : 0.0 , "reviewAllowed" : true , "skippingAllowed" : true , "randomiseQuestions" : true , "randomiseOptions" : true , "enableAutoCompletionOnCodeEditor" : false , "hintsAllowed" : false , "enablePartialMarks" : false , "showHintsOnExceptions" : false , "showTestResult" : false , "showExecutionResults" : false , "enableNegativeMarks" : false , "enableNegativeMarksForFIB" : false , "generalInstructions" : "Read the instructions provided for every question properly before attempting the answer." , "isScheduledTest" : true , "requiresJavaApplet" : false , "endTestOnBlur" : true , "isEnabled" : true , "isMobileAllowed" : true , "isAllowedLanguages" : false , "allowedLanguages" : [ ] , "sectionsArr" : [ { "isEnabled" : true , "questionsArr" : [ { "id" : "5fef197f501eeb06669198da" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198fc" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198fa" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198c8" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198e8" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198e6" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198e4" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198d0" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198f2" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198f0" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198de" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198dc" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198fe" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198ea" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198d8" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198d6" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198f8" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198d4" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198f6" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198d2" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198f4" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198e2" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198e0" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef1980501eeb0666919902" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef1980501eeb0666919900" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198ce" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198cc" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198ee" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198ca" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "5fef197f501eeb06669198ec" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"}] , "id" : 1602689140119 , "marksPerQuestion" : 2 , "closeSectionOnTime" : false , "sectionEndTime" : 0 , "enableNegativeMarks" : false , "enableNegativeMarksOnSkipping" : false , "enableNegativeMarksOnWrongAnswer" : false , "negativeMarksToBeDeducted" : 50 , "enableBonusMarks" : false , "bonusMarks1" : 0 , "bonusMarks1TimeLimit" : 0 , "bonusMarks2" : 0 , "bonusMarks2TimeLimit" : 0 , "enablePartialMarks" : false , "enableNegativeMarksForFIB" : false , "timePerQuestionInSec" : 0 , "displayQuestions" : 30 , "minimumTimePerQuestionInSec" : 5 , "maximumAnswerableQuestions" : 30 , "sectionName" : "Section - 1"}] , "acl" : { "editors" : [ "5eaf7e944039ec0bb2cfa286"]} , "updatedBy" : "tomesh@codetantra.com" , "updatedTime" : { "$date" : "2020-10-14T15:29:02.515Z"} , "createdTime" : { "$date" : "2020-10-14T15:25:24.095Z"} , "createdBy" : "tomesh@codetantra.com" , "draft" : true , "endTimeBasedOnQuestion" : false , "virtualSectionsArr" : [ ] , "_id" : { "$oid" : "602668e37ed99e065ba6d916"} , "src" : "565_ct_ch" , "id" : "602668e37ed99e065ba6d916" , "endTestOnBlurCount" : 3 , "endTestOnResumeAfterPause" : false , "endTestOnResumeAfterPauseCount" : 0 , "allowFileUploadFromSecondaryDevice" : false , "useQRCodeWFUFSD" : false , "allowPastingWithinTheEditor" : false , "includeClearResponse" : true , "showGeneralInstructionsInTest" : false , "showQuestionPaperInTest" : false , "scheduleForGateTest" : false , "disabledFinishUptoEndTime" : false , "fileUploadOptions" : "camera" , "enableFinishBeforeRemainingTimeLeft" :  null  , "disablePrevious" : false , "enableMarkForReview" : true , "navigationOutCountDown" : 65 , "considerAsNavigatedAfter" : 15 , "maximumAnswerableQuestions" :  null  , "hideTestTime" : false , "blockTestOnBlur" : false , "allowProctorToExtend" : false , "showUserTestSummaryToProctor" : false , "alertTime" : 5 , "testAudioAlert" : false , "restrictExtendBeyond" : 30 , "hideQuickAccessPanel" : false , "allowProctorToReopen" : false} , "allowedLanguages" : [ ] , "procVsUsers" : [ { "proctorId" : "5f4f8d027040890c1aba1908" , "userIds" : [ "5d6103ddf785760ab6986730" , "5d610494f785760ab6986861" , "5d610494f785760ab69868a9" , "5d610494f785760ab6986879" , "5d610270f785760ab6986460" , "5d610270f785760ab6986470" , "5d610494f785760ab698681d" , "5d610494f785760ab69868ad" , "5d610494f785760ab698685d" , "5d610494f785760ab6986829" , "5d610270f785760ab698644c" , "5d6101c8f785760ab69863c7" , "5d6103ddf785760ab6986740" , "5d6103ddf785760ab6986758" , "5d610494f785760ab6986871" , "5d610494f785760ab6986831" , "5d6103dcf785760ab69866a4" , "5d6103dcf785760ab69866a8" , "5d610270f785760ab69864bc" , "5d6103ddf785760ab6986734" , "5d6101c7f785760ab69863a3" , "5d610270f785760ab6986450" , "5d610270f785760ab6986480" , "5d610494f785760ab69868c5" , "5d7234c3f785765147063269" , "5d6103ddf785760ab6986714" , "5d610494f785760ab6986881"]} , { "proctorId" : "5fbcd79d18736106695d0c06" , "userIds" : [ "5d610270f785760ab6986508" , "5d6103ddf785760ab6986750" , "5d6101c7f785760ab698634b" , "5d610494f785760ab69867f5" , "5d610270f785760ab69864d0" , "5f26a035ce2c6d0c78b3d810" , "5d610270f785760ab69864dc" , "5d610494f785760ab6986855" , "5d610494f785760ab6986839" , "5d7a2802f7857622a05bb2ca" , "5d610494f785760ab6986875" , "5d6103dcf785760ab6986688" , "5d6101c7f785760ab6986313" , "5d610494f785760ab6986845" , "5d610270f785760ab69864c4" , "5d610494f785760ab698689d" , "5d610270f785760ab69864e8" , "5d6101c7f785760ab6986337" , "5f2691a4ce2c6d0c78b3c896" , "5d6101c7f785760ab698633f" , "5d610270f785760ab6986494" , "5d6101c8f785760ab69863d7" , "5d610494f785760ab69867f9" , "5d610270f785760ab6986490" , "5d610270f785760ab6986510" , "5d6103ddf785760ab6986744" , "5f269b17ce2c6d0c78b3d3a6"]} , { "proctorId" : "5fb29f283c4d0a065278c959" , "userIds" : [ "5d6101c8f785760ab69863ab" , "5d610270f785760ab6986454" , "5d610494f785760ab698686d" , "5d6101c7f785760ab698635f" , "5d6101c7f785760ab698637b" , "5d610270f785760ab69864f0" , "5d6101c7f785760ab6986367" , "5d6101c7f785760ab6986353" , "5f2bf95901d49f0c040c749c" , "5d6103ddf785760ab6986708" , "5d6101c7f785760ab6986393" , "5d6101c8f785760ab69863bb" , "5d610494f785760ab6986825" , "5d610270f785760ab69864c8" , "5d6103ddf785760ab6986728" , "5d6103dcf785760ab69866e0" , "5d6101c7f785760ab698639f" , "5f26999ace2c6d0c78b3d1ad" , "5d610270f785760ab69864e0" , "5d6101c8f785760ab69863af" , "5d610271f785760ab698651c" , "5d6101c7f785760ab698633b" , "5d6103dcf785760ab69866a0" , "5d610270f785760ab6986478" , "5d6101c7f785760ab698632f" , "5d6103dcf785760ab698669c" , "5d610494f785760ab69868b9"]} , { "proctorId" : "5eaf7e944039ec0bb2cfa2a9" , "userIds" : [ "5d6103dcf785760ab69866d4" , "5d610270f785760ab69864c0" , "5d6101c7f785760ab6986357" , "5d610494f785760ab69868c9" , "5d6101c7f785760ab6986323" , "5d6101c7f785760ab698632b" , "5d610270f785760ab69864e4" , "5d6101c8f785760ab69863b7" , "5d610494f785760ab69868cd" , "5d610494f785760ab69868a5" , "5d610270f785760ab69864ec" , "5d610270f785760ab6986464" , "5d610494f785760ab6986851" , "5d6101c8f785760ab69863c3" , "5d610494f785760ab69868b5" , "5f26a035ce2c6d0c78b3d815" , "5d6103dcf785760ab698668c" , "5d6101c7f785760ab698638b" , "5d6101c7f785760ab6986373" , "5d6101c8f785760ab69863db" , "5d610270f785760ab6986484" , "5d6103dcf785760ab69866ec" , "5d6101c7f785760ab698636b" , "5d610270f785760ab6986498" , "5d610270f785760ab69864b4" , "5d6103dcf785760ab69866b8"]} , { "proctorId" : "5f134dca814b3e0c16891039" , "userIds" : [ "5d6103ddf785760ab698673c" , "5d6101c8f785760ab69863b3" , "5d6101c7f785760ab698637f" , "5d7a2802f7857622a05bb2cf" , "5d610494f785760ab698684d" , "5d610270f785760ab69864d8" , "5d6103dcf785760ab6986700" , "5d610270f785760ab69864f4" , "5d6101c7f785760ab698639b" , "5d610494f785760ab6986859" , "5d610271f785760ab6986518" , "5d610270f785760ab6986474" , "5d610494f785760ab6986899" , "5d610270f785760ab69864a0" , "5d6103dcf785760ab69866b0" , "5d610494f785760ab698683d" , "5d610270f785760ab6986504" , "5d610494f785760ab6986841" , "5d610270f785760ab69864d4" , "5d610270f785760ab6986500" , "5d6103dcf785760ab69866f8" , "5d6101c7f785760ab698631b" , "5d610494f785760ab698682d" , "5d6101c7f785760ab6986363" , "5d610270f785760ab69864ac" , "5d6103ddf785760ab6986710"]} , { "proctorId" : "5eaf7e944039ec0bb2cfa286" , "userIds" : [ "5d6101c7f785760ab6986343" , "5d6101c7f785760ab69863a7" , "5d6103dcf785760ab69866dc" , "5d6103dcf785760ab69866cc" , "5d6101c7f785760ab6986347" , "5f26999ace2c6d0c78b3d1a8" , "5d6101c7f785760ab698634f" , "5d610271f785760ab6986514" , "5d6103dcf785760ab69866d8" , "5d6103dcf785760ab6986684" , "5d610494f785760ab6986889" , "5d610494f785760ab6986895" , "5d610494f785760ab69867fd" , "5d610494f785760ab69868b1" , "5d6101c8f785760ab69863bf" , "5d723b15f785765147064bfb" , "5d610270f785760ab698649c" , "5d6103ddf785760ab6986738" , "5d610494f785760ab698680d" , "5d610270f785760ab69864f8" , "5d6101c8f785760ab69863cb" , "5d610494f785760ab69868a1" , "5d724426f785765147065edc" , "5d6101c7f785760ab6986333" , "5d6103dcf785760ab6986698" , "5d610494f785760ab69868c1"]}] , "scheduleId" : "319" , "updatedTime" : { "$date" : "2021-02-18T06:18:18.988Z"} , "__create" : "simpleTestCreator" , "__testTemplateId" : "5f8718646048db063c99bf64" , "__scheduleTemplateId" : "5f8719026048db063c99c000" , "isTemplate" : false , "allowCalculator" : false , "allowProcToExtendEntryStopTime" : false , "allowProctorToReopen" : false , "anonymousEvaluators" : false , "rpUsers" : "5f4f8d027040890c1aba1908,5fbcd79d18736106695d0c06,5fb29f283c4d0a065278c959,5eaf7e944039ec0bb2cfa2a9,5f134dca814b3e0c16891039,5eaf7e944039ec0bb2cfa286" , "settingsView" : false , "showEvaluation" : false , "showMinimalView" : false , "showProctorDetails" : false , "splitScreenDetection" : false , "src" : "ANTY1X2N0X2No"} , { "_id" : { "$oid" : "603097384a66e50633bb4b40"} , "startTime" : { "$date" : "2021-02-21T04:30:00.000Z"} , "endTime" : { "$date" : "2021-02-21T06:40:00.000Z"} , "preparationTime" : 15 , "entryStopTime" : { "$date" : "2021-02-21T05:30:00.000Z"} , "test" : "60308ea74a66e50633bb3c56" , "name" : "2019-CSE-CS21CS22_CS240_back_CSE_CS240_MidSem_Feb_2021_2021/02/21 10:00" , "enforceFullScreenInTest" : true , "environmentCheck" : false , "forceLocationInTest" : false , "isEnabled" : true , "remoteProctoring" : "remoteProctoringWithoutRecord" , "rpAudio" : true , "rpCam" : true , "rpScreen" : false , "allowExamStartOn" : "alwaysUnblock" , "showProctorDetails" : true , "trackBiometrics" : true , "rpUsers" : "5eaf7e944039ec0bb2cfa2cc,5f134dca814b3e0c16891020,5eaf7e944039ec0bb2cfa2b3,5d610638f785760ab6986a15,5f134dca814b3e0c16891034,5eaf7e944039ec0bb2cfa2b8" , "requiresJavaApplet" : false , "enableFinishBeforeRemainingTimeLeft" : 0 , "splitScreenDetection" : false , "allowProctorToReopen" : true , "allowProcToExtendEntryStopTime" : true , "allowCalculator" : false , "showMinimalView" : false , "showResultsBeforeEndTime" : false , "showEvaluation" : false , "needEvaluators" : true , "anonymousEvaluators" : false , "ipRestriction" : false , "isAllowedLanguages" : false , "isHideMainContent" : false , "testSrc" : "ANTY1X2N0X2No" , "testProfile" : { "_id" : { "$oid" : "60308ea74a66e50633bb3c56"} , "test" : "CSE_CS240_MidSem_Feb_2021" , "displayName" : "CSE_CS240_MidSem_Feb_2021" , "totalTime" : 120 , "totalMarks" : 140 , "passMarks" : 1.0 , "reviewAllowed" : true , "skippingAllowed" : true , "randomiseQuestions" : true , "randomiseOptions" : true , "enableAutoCompletionOnCodeEditor" : false , "hintsAllowed" : false , "enablePartialMarks" : false , "showHintsOnExceptions" : false , "showTestResult" : false , "showExecutionResults" : false , "enableNegativeMarks" : true , "enableNegativeMarksForFIB" : false , "generalInstructions" : "Read the instructions provided for every question properly before attempting the answer. Each question carries 2 marks and -0.5 for the wrong answers." , "isScheduledTest" : true , "requiresJavaApplet" : false , "endTestOnBlur" : false , "isEnabled" : true , "isMobileAllowed" : true , "isAllowedLanguages" : false , "allowedLanguages" : [ ] , "sectionsArr" : [ { "isEnabled" : true , "questionsArr" : [ { "id" : "602f965ff608450666000b32" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fee11c319cf0662555787" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff2ebc319cf0662556026" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f8dc9f608450666fff2ad" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9020f608450666fff724" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9216f608450666fffc6f" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff65cc319cf06625564b8" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f95eff608450666000a8e" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9b0af60845066600153f" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff4b7c319cf0662556273" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4cf30e08f22e46dbf9cf"} , { "id" : "602f9e94f608450666002366" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9bfaf6084506660018dc" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ffc90c319cf0662556d44" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff843c319cf06625567cf" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f99cdf608450666001055" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff696c319cf0662556507" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ffd5cc319cf0662556e4a" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ffa3ac319cf0662556a65" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff387c319cf06625560dc" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff8dac319cf0662556880" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9296f608450666fffe8e" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff292c319cf0662555fae" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9ba9f6084506660017c4" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff466c319cf0662556217" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9e2cf608450666002238" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fecb4c319cf066255556d" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f91a8f608450666fffac5" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9940f608450666000fa6" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9aadf6084506660013a7" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f8f50f608450666fff533" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f96c9f608450666000bd0" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f8cd4f608450666fff0fd" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f931ef608450666000119" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9c54f6084506660019f9" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9ccff608450666001b87" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff89fc319cf0662556828" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f8bc9f608450666ffeea6" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fa0b0f608450666002a4b" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fedadc319cf06625556fb" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff75cc319cf066255660e" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9dc6f608450666002086" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff091c319cf0662555c3c" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff3ecc319cf0662556171" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9d69f608450666001e8a" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff609c319cf0662556472" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9ef3f608450666002425" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602feb23c319cf0662555288" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fef86c319cf0662555a30" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ffadec319cf0662556b4c" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fa16bf608450666002d7a" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff9f7c319cf0662556a09" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4cf30e08f22e46dbf9cf"} , { "id" : "602f97caf608450666000d9f" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fed4fc319cf066255565a" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f98bff608450666000f0d" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff6f8c319cf0662556597" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ffd94c319cf0662556eef" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9ff0f60845066600277d" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff80ec319cf066255677d" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff924c319cf06625568d1" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ffb29c319cf0662556bb3" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f8eeef608450666fff45a" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fec07c319cf066255543c" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f9a27f6084506660010e7" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fa049f608450666002906" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff7acc319cf0662556669" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602f984ef608450666000e43" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602fa119f608450666002c3f" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff530c319cf0662556327" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ff572c319cf066255638d" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "602ffa9fc319cf0662556ae2" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"}] , "id" : 1613795247269 , "marksPerQuestion" : 2 , "closeSectionOnTime" : false , "sectionEndTime" : 0 , "enableNegativeMarks" : true , "enableNegativeMarksOnSkipping" : false , "enableNegativeMarksOnWrongAnswer" : true , "negativeMarksToBeDeducted" : 25 , "enableBonusMarks" : false , "bonusMarks1" : 0 , "bonusMarks1TimeLimit" : 0 , "bonusMarks2" : 0 , "bonusMarks2TimeLimit" : 0 , "enablePartialMarks" : false , "enableNegativeMarksForFIB" : false , "timePerQuestionInSec" : 0 , "displayQuestions" : 70 , "maximumAnswerableQuestions" : 70 , "minimumTimePerQuestionInSec" : 5 , "sectionName" : "Section - 1"}] , "acl" : { "editors" : [ "5f134dca814b3e0c16891020" , "5eaf7e944039ec0bb2cfa2cc"]} , "updatedBy" : "moulik37@gmail.com" , "updatedTime" : { "$date" : "2021-02-20T04:53:10.336Z"} , "createdTime" : { "$date" : "2021-02-20T04:23:03.607Z"} , "createdBy" : "moulik37@gmail.com" , "draft" : false , "endTimeBasedOnQuestion" : false , "virtualSectionsArr" : [ ] , "src" : "565_ct_ch" , "encodedSrc" : "ANTY1X2N0X2No" , "usersMap" : { "5eaf7e944039ec0bb2cfa2cc" : { "_id" : { "$oid" : "5eaf7e944039ec0bb2cfa2cc"} , "loginId" : "radhika@iiitg.ac.in" , "name" : "Radhika Sukapuram"} , "5f134dca814b3e0c16891020" : { "_id" : { "$oid" : "5f134dca814b3e0c16891020"} , "loginId" : "moulik37@gmail.com" , "name" : "Sanjay Moulik"}} , "hideTestTime" : false , "blockTestOnBlur" : false , "allowProctorToExtend" : true , "allowProctorToReopen" : true , "restrictExtendBeyond" : 120 , "showUserTestSummaryToProctor" : true , "endTestOnBlurCount" : 0 , "navigationOutCountDown" : 0 , "considerAsNavigatedAfter" : 0 , "alertTime" : 5 , "testAudioAlert" : false , "endTestOnResumeAfterPause" : false , "endTestOnResumeAfterPauseCount" : 0 , "allowFileUploadFromSecondaryDevice" : false , "useQRCodeWFUFSD" : false , "allowPastingWithinTheEditor" : false , "includeClearResponse" : true , "showGeneralInstructionsInTest" : true , "showQuestionPaperInTest" : false , "scheduleForGateTest" : false , "disabledFinishUptoEndTime" : false , "fileUploadOptions" : "camera" , "disablePrevious" : false , "hideQuickAccessPanel" : false , "enableMarkForReview" : false} , "allowedLanguages" : [ ] , "procVsUsers" : [ { "proctorId" : "5eaf7e944039ec0bb2cfa2cc" , "userIds" : [ "5f2bf95901d49f0c040c749c" , "5f268d10ce2c6d0c78b3c07a" , "5d6103dcf785760ab69866e0" , "5f2691a4ce2c6d0c78b3c896" , "5f26999ace2c6d0c78b3d1a8" , "5d6101c7f785760ab6986313" , "5d6101c7f785760ab698631b" , "5d6101c7f785760ab6986323" , "5d6101c7f785760ab698632b" , "5d6101c7f785760ab698632f" , "5d6101c7f785760ab6986333" , "5d6101c7f785760ab6986337" , "5d6101c7f785760ab698633b" , "5d6101c7f785760ab698633f" , "5d6101c7f785760ab6986343" , "5d6101c7f785760ab6986347" , "5d6101c7f785760ab698634b" , "5d6101c7f785760ab698634f" , "5d6101c7f785760ab6986353" , "5d6101c7f785760ab6986357" , "5d6101c7f785760ab698635f" , "5d6101c7f785760ab6986363" , "5d6101c7f785760ab6986367" , "5d6101c7f785760ab698636b" , "5d6101c7f785760ab6986373" , "5d6101c7f785760ab698637b" , "5d6101c7f785760ab698637f"]} , { "proctorId" : "5f134dca814b3e0c16891020" , "userIds" : [ "5d6101c7f785760ab698638b" , "5d6101c7f785760ab6986393" , "5d6101c7f785760ab698639b" , "5d6101c7f785760ab698639f" , "5d6101c7f785760ab69863a3" , "5d6101c7f785760ab69863a7" , "5d6101c8f785760ab69863ab" , "5d6101c8f785760ab69863af" , "5d6101c8f785760ab69863b3" , "5d6101c8f785760ab69863b7" , "5d6101c8f785760ab69863bb" , "5d6101c8f785760ab69863bf" , "5d6101c8f785760ab69863c3" , "5d6101c8f785760ab69863c7" , "5d6101c8f785760ab69863cb" , "5d6101c8f785760ab69863d7" , "5d6101c8f785760ab69863db" , "5f26999ace2c6d0c78b3d1ad" , "5d610270f785760ab698644c" , "5d610270f785760ab6986450" , "5d610270f785760ab6986454" , "5d610270f785760ab6986460" , "5d610270f785760ab6986464" , "5d610270f785760ab6986468" , "5d610270f785760ab6986470" , "5d610270f785760ab6986474" , "5d610270f785760ab6986478"]} , { "proctorId" : "5eaf7e944039ec0bb2cfa2b3" , "userIds" : [ "5d610270f785760ab6986480" , "5d610270f785760ab6986484" , "5d7234c3f785765147063269" , "5d610270f785760ab6986490" , "5d610270f785760ab6986494" , "5d610270f785760ab6986498" , "5d610270f785760ab698649c" , "5d610270f785760ab69864a0" , "5d610270f785760ab69864ac" , "5f269b17ce2c6d0c78b3d3a6" , "5d610270f785760ab69864b4" , "5d610270f785760ab69864bc" , "5d610270f785760ab69864c0" , "5d610270f785760ab69864c4" , "5d610270f785760ab69864c8" , "5d610270f785760ab69864d0" , "5d610270f785760ab69864d4" , "5d610270f785760ab69864d8" , "5d610270f785760ab69864dc" , "5d610270f785760ab69864e0" , "5d610270f785760ab69864e4" , "5d610270f785760ab69864e8" , "5d610270f785760ab69864ec" , "5d610270f785760ab69864f0" , "5d610270f785760ab69864f4" , "5d610270f785760ab69864f8" , "5d610270f785760ab6986504"]} , { "proctorId" : "5d610638f785760ab6986a15" , "userIds" : [ "5d610270f785760ab6986508" , "5d610270f785760ab6986510" , "5d610271f785760ab6986514" , "5d610271f785760ab6986518" , "5d610271f785760ab698651c" , "5d6103dcf785760ab6986684" , "5d6103dcf785760ab6986688" , "5d6103dcf785760ab698668c" , "5d6103dcf785760ab6986698" , "5d6103dcf785760ab698669c" , "5d6103dcf785760ab69866a0" , "5d6103dcf785760ab69866a4" , "5d6103dcf785760ab69866a8" , "5d6103dcf785760ab69866b0" , "5d724426f785765147065edc" , "5d6103dcf785760ab69866b8" , "5d6103dcf785760ab69866cc" , "5d6103dcf785760ab69866d4" , "5d6103dcf785760ab69866d8" , "5d6103dcf785760ab69866dc" , "5d7a2802f7857622a05bb2cf" , "5d6103dcf785760ab69866ec" , "5d6103dcf785760ab69866f8" , "5d6103dcf785760ab6986700" , "5d6103ddf785760ab6986708" , "5d6103ddf785760ab6986710" , "5d6103ddf785760ab6986714"]} , { "proctorId" : "5f134dca814b3e0c16891034" , "userIds" : [ "5d723b15f785765147064bfb" , "5d6103ddf785760ab6986728" , "5d6103ddf785760ab6986730" , "5d6103ddf785760ab6986734" , "5d6103ddf785760ab6986738" , "5d6103ddf785760ab698673c" , "5d6103ddf785760ab6986740" , "5d6103ddf785760ab6986744" , "5d7a2802f7857622a05bb2ca" , "5d6103ddf785760ab6986750" , "5d6103ddf785760ab6986758" , "5d610494f785760ab69867f5" , "5d610494f785760ab69867f9" , "5d610494f785760ab69867fd" , "5f26a035ce2c6d0c78b3d810" , "5d610494f785760ab698680d" , "5d610494f785760ab698681d" , "5d610494f785760ab6986825" , "5d610494f785760ab6986829" , "5d610494f785760ab698682d" , "5d610494f785760ab6986831" , "5d610494f785760ab6986839" , "5d610494f785760ab698683d" , "5d610494f785760ab6986841" , "5d610494f785760ab6986845" , "5f26a035ce2c6d0c78b3d815"]} , { "proctorId" : "5eaf7e944039ec0bb2cfa2b8" , "userIds" : [ "5d610494f785760ab698684d" , "5d610494f785760ab6986851" , "5d610494f785760ab6986855" , "5d610494f785760ab6986859" , "5d610494f785760ab698685d" , "5d610494f785760ab6986861" , "5d610494f785760ab698686d" , "5d610494f785760ab6986871" , "5d610494f785760ab6986875" , "5d610494f785760ab6986879" , "5d610494f785760ab6986881" , "5d610494f785760ab6986889" , "5d610494f785760ab6986895" , "5d610494f785760ab6986899" , "5d610494f785760ab698689d" , "5d610494f785760ab69868a1" , "5d610494f785760ab69868a5" , "5d610494f785760ab69868a9" , "5d610494f785760ab69868ad" , "5d610494f785760ab69868b1" , "5d610494f785760ab69868b5" , "5d610494f785760ab69868b9" , "5d610494f785760ab69868c1" , "5d610494f785760ab69868c5" , "5d610494f785760ab69868c9" , "5d610494f785760ab69868cd"]}] , "settingsView" : false , "scheduleId" : "346" , "updatedTime" : { "$date" : "2021-02-20T04:59:36.765Z"} , "src" : "ANTY1X2N0X2No"} , { "_id" : { "$oid" : "6028e597d7258f067267d0a6"} , "startTime" : { "$date" : "2021-02-15T09:45:00.000Z"} , "endTime" : { "$date" : "2021-02-15T10:30:00.000Z"} , "preparationTime" : 15 , "entryStopTime" : { "$date" : "2021-02-15T10:00:00.000Z"} , "test" : "6028e1e2d7258f067267c29b" , "name" : "2019-CSE-CS21CS22_CS240_back_CS240-2021Feb-Quiz1_2021/02/15 15:15" , "enforceFullScreenInTest" : true , "environmentCheck" : false , "forceLocationInTest" : false , "isEnabled" : true , "remoteProctoring" : "remoteProctoringNone" , "rpAudio" : false , "rpCam" : false , "rpScreen" : false , "allowExamStartOn" : "proctorUnblock" , "showProctorDetails" : false , "trackBiometrics" : true , "requiresJavaApplet" : false , "enableFinishBeforeRemainingTimeLeft" : 0 , "splitScreenDetection" : false , "allowProctorToReopen" : false , "allowProcToExtendEntryStopTime" : false , "allowCalculator" : false , "showMinimalView" : false , "showResultsBeforeEndTime" : false , "showEvaluation" : false , "needEvaluators" : true , "anonymousEvaluators" : false , "ipRestriction" : false , "isAllowedLanguages" : false , "isHideMainContent" : false , "testSrc" : "ANTY1X2N0X2No" , "testProfile" : { "_id" : { "$oid" : "6028e1e2d7258f067267c29b"} , "test" : "CS240-2021Feb-Quiz1" , "displayName" : "CS240-2021Feb-Quiz1" , "totalTime" : 30 , "totalMarks" : 80 , "passMarks" : 24.0 , "reviewAllowed" : true , "skippingAllowed" : true , "randomiseQuestions" : true , "randomiseOptions" : true , "enableAutoCompletionOnCodeEditor" : false , "hintsAllowed" : false , "enablePartialMarks" : true , "showHintsOnExceptions" : false , "showTestResult" : true , "showExecutionResults" : false , "enableNegativeMarks" : true , "enableNegativeMarksForFIB" : true , "generalInstructions" : "Read the instructions provided for every question properly before attempting the answer. For a wrong answer, 1 mark will be deducted. For a right answer, 4 marks will be awarded. If a question is not attempted, 0 marks will be warded." , "isScheduledTest" : true , "requiresJavaApplet" : false , "endTestOnBlur" : false , "isEnabled" : true , "isMobileAllowed" : true , "isAllowedLanguages" : false , "allowedLanguages" : [ ] , "sectionsArr" : [ { "isEnabled" : true , "questionsArr" : [ { "id" : "6028c1332d48cf06681e0e18" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028c0842d48cf06681e0af0" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028bf612d48cf06681e057d" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028c42f2d48cf06681e1c72" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028af8aa1487b06652a2127" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028b216a1487b06652a2ee0" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028c3012d48cf06681e1659" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028c4b22d48cf06681e1ed2" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028aed5a1487b06652a1dad" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028c1fe2d48cf06681e11a9" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028c2892d48cf06681e141b" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028bdfd2d48cf06681dfe7e" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028ad2ca1487b06652a1693" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028c39c2d48cf06681e19b5" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028b0c0a1487b06652a270a" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028b11ea1487b06652a2935" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028b47ca1487b06652a3e25" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028c50e2d48cf06681e2043" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028c1a22d48cf06681e0f9e" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"} , { "id" : "6028b185a1487b06652a2b18" , "src" : "565_ct_ch" , "isEnabled" : true , "courseOutcomes" :  null  , "highlightResultInExaminarsReportCard" : false , "extraFeedbackToExaminee" : "" , "questionType" : "549b4ce80e08f22e46dbf9cd"}] , "id" : 1613292034503 , "marksPerQuestion" : 4 , "closeSectionOnTime" : false , "sectionEndTime" : 0 , "enableNegativeMarks" : true , "enableNegativeMarksOnSkipping" : false , "enableNegativeMarksOnWrongAnswer" : true , "negativeMarksToBeDeducted" : 25 , "enableBonusMarks" : false , "bonusMarks1" : 0 , "bonusMarks1TimeLimit" : 0 , "bonusMarks2" : 0 , "bonusMarks2TimeLimit" : 0 , "enablePartialMarks" : true , "enableNegativeMarksForFIB" : true , "timePerQuestionInSec" : 0 , "displayQuestions" : 20 , "maximumAnswerableQuestions" : 20 , "minimumTimePerQuestionInSec" : 5 , "sectionName" : "Section - 1"}] , "acl" : { "editors" : [ "5eaf7e944039ec0bb2cfa2cc" , "5f134dca814b3e0c16891020"]} , "updatedBy" : "radhika@iiitg.ac.in" , "updatedTime" : { "$date" : "2021-02-14T08:43:57.625Z"} , "createdTime" : { "$date" : "2021-02-14T08:40:02.562Z"} , "createdBy" : "radhika@iiitg.ac.in" , "draft" : false , "endTimeBasedOnQuestion" : false , "virtualSectionsArr" : [ ] , "src" : "565_ct_ch" , "encodedSrc" : "ANTY1X2N0X2No" , "usersMap" : { "5eaf7e944039ec0bb2cfa2cc" : { "_id" : { "$oid" : "5eaf7e944039ec0bb2cfa2cc"} , "loginId" : "radhika@iiitg.ac.in" , "name" : "Radhika Sukapuram"} , "5f134dca814b3e0c16891020" : { "_id" : { "$oid" : "5f134dca814b3e0c16891020"} , "loginId" : "moulik37@gmail.com" , "name" : "Sanjay Moulik"}} , "hideTestTime" : false , "blockTestOnBlur" : false , "allowProctorToExtend" : false , "allowProctorToReopen" : false , "restrictExtendBeyond" : 30 , "showUserTestSummaryToProctor" : false , "endTestOnBlurCount" : 0 , "navigationOutCountDown" : 0 , "considerAsNavigatedAfter" : 0 , "alertTime" : 5 , "testAudioAlert" : false , "endTestOnResumeAfterPause" : false , "endTestOnResumeAfterPauseCount" : 0 , "allowFileUploadFromSecondaryDevice" : false , "useQRCodeWFUFSD" : false , "allowPastingWithinTheEditor" : false , "includeClearResponse" : true , "showGeneralInstructionsInTest" : false , "showQuestionPaperInTest" : false , "scheduleForGateTest" : false , "disabledFinishUptoEndTime" : false , "fileUploadOptions" : "camera" , "disablePrevious" : false , "hideQuickAccessPanel" : false , "enableMarkForReview" : false} , "allowedLanguages" : [ ] , "procVsUsers" : [ ] , "settingsView" : false , "scheduleId" : "321" , "updatedTime" : { "$date" : "2021-02-17T09:05:49.869Z"} , "src" : "ANTY1X2N0X2No"}] , "serverDateTime" : 1613798021262 , "userTestSummaryDBObjList" : [ { "_id" : { "$oid" : "602a42aac9a1090667571033"} , "scheduleId" : "321" , "userId" : "5d7a2802f7857622a05bb2ca" , "testId" : "6028e1e2d7258f067267c29b" , "completionStatus" : true , "completionType" : 4 , "testInProgress" : false}] , "finalList" : [ ] , "ttid" : "5d7a2802f7857622a05bb2ca"});
+    });
+
+    // TODO: Ask Ravi if I should keep this or not
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }
+        i[r].l = 1 * new Date();
+        a = s.createElement(o);
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-21208757-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>
